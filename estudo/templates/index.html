@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Estudo Flask</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Itens</title>
 </head>
 <body>
-    <div>
-        <h3>Estudo Flask</h3>
-        <h5>Aprendendo Flask</h5>
-        <img src="{{ url_for('static', filename='images/images.png')}}">
-    </div>
-    <div>
-        <p>Bem vindos a aula de Flask</p>
-    </div>
+    <h1>Lista de Itens</h1>
+    
+    <!-- Exibe os itens -->
+    <ul>
+        {% for item in itens %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Formulário para adicionar itens -->
+    <form method="POST">
+        <label for="item">Novo Item:</label>
+        <input type="text" id="item" name="item" required>
+        <button type="submit">Adicionar</button>
+    </form>
 </body>
 </html>
